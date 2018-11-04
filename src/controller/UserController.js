@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = require('../models/user');
+var Agency = require('../models/agency');
 
 exports.show = function(req, res, next) {
   User.findOne({_id: req.params.id}, (err, user) => {
@@ -10,11 +11,19 @@ exports.show = function(req, res, next) {
 }
 
 exports.create = function(req, res, next) {
+  let agency = new Agency({
+    name: '123123',
+    desc: '123123',
+    avatar: '123123',
+    default: true
+  })
+
   let user = new User({
     email: req.body.email,
     password: req.body.password,
     name: req.body.name,
-    age: req.body.age
+    age: req.body.age,
+    agencies: agency
   });
 
   user.save((error,user) => {
@@ -39,6 +48,13 @@ exports.update = function(req, res, next) {
 
 exports.delete = function(req, res, next) {
   User.findOneAndRemove({_id: req.params.id}, (err, user) => {
+    if (err) res.status(404).send(err);
+    res.status(200).json(user);
+  })
+}
+
+exports.aboutMe = function(req, res, next) {
+  User.findOne({_id: req.user.id}, (err, user) => {
     if (err) res.status(404).send(err);
     res.status(200).json(user);
   })

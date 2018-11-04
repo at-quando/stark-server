@@ -20,4 +20,4 @@ COPY . /express-backend
 EXPOSE 3000
 
 # Serve the app
-CMD ["npm", "start"]
+CMD ["npm", "docker"]
