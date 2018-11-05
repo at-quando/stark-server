@@ -12,8 +12,8 @@ exports.show = function(req, res, next) {
 
 exports.create = function(req, res, next) {
   let agency = new Agency({
-    name: '123123',
-    desc: '123123',
+    name: 'Nova Production',
+    desc: 'a media, wedding company',
     avatar: '123123',
     default: true
   })
