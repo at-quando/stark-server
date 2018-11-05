@@ -17,6 +17,8 @@ services:
     image: mongo # specify image to build container from
     ports:
       - "27018:27017" # specify port forewarding
+    volumes:
+      - ./data:/data/db
 
 volumes:
   express_webmodule:

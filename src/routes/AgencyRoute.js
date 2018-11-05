@@ -9,13 +9,13 @@ const Validation = require('../lib/Validation');
 /* GET all users. */
 router.get('/', AgencyCtrl.index);
 
-/* Create a user. */
-router.post('/', AppCtrl.check, AgencyCtrl.create);
+// /* Create a user. */
+// router.post('/', AppCtrl.check, AgencyCtrl.create);
 
-/* Update a user. */
-router.put('/:id', AppCtrl.check, AgencyCtrl.update);
+// /* Update a user. */
+// router.put('/:id', AppCtrl.check, AgencyCtrl.update);
 
-/* Delete a user. */
-router.delete('/:id', AppCtrl.check, AgencyCtrl.delete);
+// /* Delete a user. */
+// router.delete('/:id', AppCtrl.check, AgencyCtrl.delete);
 
 module.exports = router;

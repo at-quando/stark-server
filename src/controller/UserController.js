@@ -54,6 +54,7 @@ exports.delete = function(req, res, next) {
 }
 
 exports.aboutMe = function(req, res, next) {
+  console.log(req.user)
   User.findOne({_id: req.user.id}, (err, user) => {
     if (err) res.status(404).send(err);
     res.status(200).json(user);
